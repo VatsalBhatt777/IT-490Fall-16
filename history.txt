@@ -1,0 +1,322 @@
+    1  ls
+    2  clear
+    3  ls
+    4  whoami
+    5  su -
+    6  clear
+    7  cd /etc
+    8  cat shadow
+    9  cd
+   10  clear
+   11  ls
+   12  clear
+   13  poweroff
+   14  sudo apt-get install aptitude
+   15  sudo service apache2 start
+   16  uname -a
+   17  cd etc/apache2
+   18  cd /etc/
+   19  ls
+   20  ls | grep apache
+   21  cd apache2/
+   22  ls
+   23  cd sites-available/
+   24  ls
+   25  cat default-ssl.conf 
+   26  vlrst
+   27  clear
+   28  cd ..
+   29  ls
+   30  cd sites-enabled/
+   31  ls
+   32  ln -s ../sites-available/default-ssl.conf 
+   33  sudo ln -s ../sites-available/default-ssl.conf 
+   34  ls
+   35  sudo rm 000-default.conf 
+   36  clear
+   37  ls
+   38  sudo service apache2 reload 
+   39  ls
+   40  clear
+   41  cd
+   42  clear
+   43  ls
+   44  cd /etc/apache2
+   45  ls
+   46  sudo mkdir /var/www/demo
+   47  cd sites-enabled/
+   48  ls
+   49  vi default-ssl.conf 
+   50  cd ..
+   51  sudo vim hosts
+   52  sudo vi hosts
+   53  cd apache2
+   54  ls
+   55  cd sites-available/
+   56  ls
+   57  cat default-ssl.conf 
+   58  vi default-ssl.conf 
+   59  ls
+   60  vi default-ssl.conf 
+   61  clear
+   62  gedit default-ssl.conf 
+   63  sudo gedit default-ssl.conf 
+   64  cat default-ssl.conf 
+   65  cd /var/www/demo
+   66  ls
+   67  vi index.html
+   68  sudo gedit index.html
+   69  cat index.html 
+   70  cd /etc/apache2/sites-enabled/
+   71  ls
+   72  cat default-ssl.conf 
+   73  ls
+   74  clear
+   75  ls
+   76  cd /var/www
+   77  ls
+   78  cd demo
+   79  ls
+   80  sudo apt-get install vim
+   81  clear
+   82  ls
+   83  cat index.html 
+   84  ls
+   85  clear
+   86  cd
+   87  clear
+   88  kls
+   89  clear
+   90  ls
+   91  clear
+   92  ls
+   93  cd /var/www
+   94  ls
+   95  cd demo
+   96  ls
+   97  cd /etc/apache2
+   98  ls
+   99  cd sites-available/
+  100  ls
+  101  sudo vim default-ssl.conf 
+  102  cd ../sites-enabled/
+  103  ls
+  104  sudo vim default-ssl.conf 
+  105  cd ../sites-available/
+  106  ls
+  107  rm 000-default.conf 
+  108  sudo rm 000-default.conf 
+  109  ls
+  110  cat default-ssl.conf 
+  111  cd ../sites-enabled/
+  112  ls
+  113  sudo service apache2 reload
+  114  sudo service apache2 restart
+  115  cd /var/
+  116  ls
+  117  cd www
+  118  ls
+  119  cd demo
+  120  ls
+  121  clear
+  122  cd
+  123  cd /etc/apache2/
+  124  ;s
+  125  ls
+  126  clear
+  127  ls
+  128  ls
+  129  cat default-ssl.conf 
+  130  sudo vim default-ssl.conf 
+  131  clear
+  132  sudo service apache2 reload
+  133  cat default-ssl.conf 
+  134  clear
+  135  ls
+  136  cd ../sites-enabled/
+  137  ls
+  138  cat default-ssl.conf 
+  139  clear
+  140  cd ../sites-available/
+  141  ls
+  142  sudo vim default-ssl.conf 
+  143  cd ../sites-enabled/
+  144  ls
+  145  cat default-ssl.conf 
+  146  clear
+  147  cd
+  148  clear
+  149  sudo service apache2 reload
+  150  cd /etc/apache2/sites-enables
+  151  cd /etc/apache2/sites-enabled/
+  152  ls
+  153  cat default-ssl.conf 
+  154  gedit default-ssl.conf 
+  155  cd /var/www/demo/
+  156  ls
+  157  ls -la
+  158  cd etc/apache2/sites-enabled
+  159  cd etc/apache2/
+  160  cd /etc/apache2
+  161  ls
+  162  cd sites-enabled/
+  163  ls
+  164  cd ../sites-available/
+  165  ls
+  166  clear
+  167  history
+  168  sudo apt-get update apache2
+  169  sudo apt-get install  apache2
+  170  sudo apt-get install  synaptic
+  171  sudo synaptic
+  172  sudo apt-get --purge remove apache2
+  173  sudo apt-get autoremove
+  174  sudo apt-get install apache2
+  175  sudo service apache2 start
+  176  cd /etc/apache2
+  177  ls
+  178  cd sites-available/
+  179  ls
+  180  cat 000-default.conf 
+  181  ls
+  182  sudo vim 000-default.conf 
+  183  ls
+  184  cd ../sites-enabled/
+  185  ls
+  186  cat 000-default.conf 
+  187  clear
+  188  cd
+  189  clear
+  190  sudo service apache2 reload
+  191  sudo service apache2 restart
+  192  history
+  193  clear
+  194  sudo poweroff
+  195  cd IT490-Group/
+  196  ls
+  197  cd Jeff/
+  198  ls
+  199  cd IT490Fall16/
+  200  ls
+  201  clear
+  202  cd ..
+  203  mkdir Prit
+  204  mkdir Ket
+  205  cd Ket
+  206  clear
+  207  git clone https://github.com/KnP619/IT490
+  208  ls
+  209  cd IT490/
+  210  ls
+  211  clear
+  212  cd ..
+  213  cd ../Prit/
+  214  git clone https://github.com/pp376/it490
+  215  ls
+  216  cd it490/
+  217  ls
+  218  clear
+  219  cd
+  220  clear
+  221  cd IT490-Group/
+  222  mkdir Prof.Kehoe
+  223  cd Prof.Kehoe/
+  224  git clone https://github.com/engineerOfLies/IT490Fall16
+  225  ls
+  226  cd IT490Fall16/
+  227  ls
+  228  cat README.md 
+  229  ld
+  230  ls
+  231  sudo init 0
+  232  cd ~
+  233  cd .ssh
+  234  ls
+  235  cat id_rsa.pub 
+  236  cat id_rsa
+  237  git help credentials
+  238  clear
+  239  pwd
+  240  cd ~
+  241  pwd
+  242  ls
+  243  clear
+  244  ssh-keygen -t rsa
+  245  cd ./ssh
+  246  ls
+  247  ls -a
+  248  cd .ssh
+  249  ls
+  250  cat id_rsa
+  251  clear
+  252  cd
+  253  clear
+  254  ls
+  255  cd IT-490/
+  256  ls
+  257  cd IT-490Fall-16/
+  258  ls
+  259  git status
+  260  git pull
+  261  cd ../
+  262  cd ../IT490-Group/
+  263  ls
+  264  cd Jeff/
+  265  ls
+  266  cd IT490Fall16/
+  267  ls
+  268  git pull
+  269  cd
+  270  clear
+  271  cd IT-490/IT-490Fall-16/
+  272  ls -a
+  273  sudo vim HelloWorld
+  274  git status
+  275  git add HelloWorld 
+  276  git commit -m "Testing Hello World"
+  277  git push
+  278  git status
+  279  git pull
+  280  clear
+  281  cd ~
+  282  ls
+  283  cd .ssh
+  284  ls
+  285  cat id_rsa.pub 
+  286  cd ../IT-490/IT-490Fall-16/
+  287  ls
+  288  sudo vim HelloWorld
+  289  git status
+  290  git add HelloWorld
+  291  git commit -m  "Hope it works"
+  292  git push
+  293  clear
+  294  git+ssh
+  295  git+ssh://git@github.com/VatsalBhatt777/IT-490Fall-16.git
+  296  clear
+  297  git remote show origin
+  298  git remote set-url origin git+ssh://git@github.com/VatsalBhatt777/IT-490Fall-16.git
+  299  git remote show origin
+  300  ls
+  301  sudo vim HelloWorld 
+  302  git status
+  303  git add HelloWorld
+  304  git commit -m "BETTER WORK"
+  305  git push
+  306  cd
+  307  cd IT-490/IT-490Fall-16/
+  308  ls
+  309  mv HelloWorld SSH-Key
+  310  ls
+  311  sudo vim SSH-Key 
+  312  cat SSH-Key 
+  313  git status
+  314  git add SSH-Key 
+  315  git commit -m "How to avoid entering username and password while pushing" 
+  316  git push
+  317  clear
+  318  cd
+  319  clear
+  320  sudo init 0
+  321  history
+  322  history > history.txt
