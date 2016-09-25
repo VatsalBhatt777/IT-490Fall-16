@@ -1,0 +1,27 @@
+HOW TO CONFIGURE PHP7 TO USE OLDER MYSQL FUNCTIONS
+
+https://ckon.wordpress.com/2015/08/06/put-mysql-functions-back-into-php-7/
+
+TYPE CD to be in your home directory
+
+mkdir mysql
+
+git clone https://github.com/php/pecl-database-mysql     mysql   --recursive
+
+phpize
+
+./configure
+
+make
+
+make install
+
+
+MAKE INSTALL SHOULD TELL YOU WHERE IT IS COPYING mysql.so IT MIGHT BE    /usr/lib/php/20151012/
+
+GO TO /etc/php/7.0/cli/php.ini AND ADD FOLLOWING LINE TO THAT FILE 
+
+extension=/usr/lib/php/20151012/mysql.so
+
+
+
