@@ -1,0 +1,12 @@
+***PLEASE TYPE FOLLOWING COMMANDS***
+***Create a database named Soccer with following command***
+
+Create database Soccer;
+
+
+***Create a table named PremiereLeague with following command***
+
+CREATE TABLE PremiereLeague (Id INT PRIMARY KEY, Position INT, teamName VARCHAR(30), playedGames INT, points INT, goals INT, goalsAgainst INT, goalDifference INT, wins INT, draws INT, losses INT); 
+
+
+)
