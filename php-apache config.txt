@@ -1,0 +1,5 @@
+To get php working with apache2 please run following command
+
+sudo apt-get install libapache2-mod-php7.0
+
+
