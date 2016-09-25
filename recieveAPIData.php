@@ -10,9 +10,9 @@
 
 echo '<br><br>Connected Successfully<br><br>';
 
-  mysql_select_db("Soccer", $con);
-
-
+echo 'HELLO';
+ 
+ mysqli_select_db($con,"Soccer");
 
 
 
@@ -38,7 +38,39 @@ print "<br><br> Hello <br><br>";
 
 	$teamName= $fixtures['standing'][$x]['teamName'];
 
-	echo "    ".$id."      ". $position. "      ".$teamName."<br/><br/>";
+	$playedGames= $fixtures['standing'][$x]['playedGames'];
+
+	$points =  $fixtures['standing'][$x]['points'];
+
+        $goals =  $fixtures['standing'][$x]['goals'];
+
+	$goalsAgainst =  $fixtures['standing'][$x]['goalsAgainst'];
+
+	$goalDifference =  $fixtures['standing'][$x]['goalDifference'];
+
+	$wins =  $fixtures['standing'][$x]['wins'];
+
+	$draws =  $fixtures['standing'][$x]['draws'];
+
+	$losses =  $fixtures['standing'][$x]['losses'];
+
+	
+
+//	echo "    ".$id."      ". $position. "      ".$teamName."      ".$playedGames."      " .$points."      ".$goals."    ".$goalsAgainst."     ".$goalDifference. "     ".$wins. "    ".$draws."    ".$losses."   <br/><br/>";
+
+$sql = "INSERT INTO PremiereLeague VALUES('$id','$position','$teamName','$playedGames','$points','$goals','$goalsAgainst','$goalDifference','$wins','$draws','$losses');";
+
+	if(mysqli_query($con,$sql)){
+
+		echo "<br><br>New record created successfully <br><br>";
+
+					}
+
+	else {
+
+		echo "Error: ".$sql."<br>".mysqli_error($con);
+}
+
 }
 
 ?>
