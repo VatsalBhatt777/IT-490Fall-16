@@ -1,0 +1,38 @@
+
+League Tables
+http://api.football-data.org/v1/competitions/426/leagueTable
+
+426:- Premiere League
+430:- Bundesliga
+434:- Ligue 1
+436:- Primera Division (spain)
+438:- Seria A (Italy)
+440:- Champions Leagie (gotta change so much code)
+
+
+http://api.football-data.org/documentation (REFERENCE)
+
+
+League tables (PHP code, figure out a way to have it all in one php script)
+
+Players in league (php code, figure out a way so that we can have all players from all teams in one php file)
+
+ls
+
+
+
+Players:
+
+http://api.football-data.org/v1/competitions/426/teams (use this)
+
+
+CREATE TABLE L (GameID INT PRIMARY KEY, GameDate VARCHAR(30), GameStatus VARCHAR(30), homeTeamName VARCHAR(30), awayTeamName VARCHAR(30), homeTeamGoals INT, awayTeamGoals INT, MatchDay INT); 
+
+in above sql code please execute it 5 times for 5 leagues
+
+change the table name to 
+S
+l
+L
+B
+P
