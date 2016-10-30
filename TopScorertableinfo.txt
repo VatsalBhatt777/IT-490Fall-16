@@ -1,0 +1,10 @@
+CREATE TABLE `SerieA-TopScorer` (id INT PRIMARY KEY, teamName VARCHAR(30), Rank INT, TotalGoals INT, Name VARCHAR(30))
+
+
+CREATE TABLE `LaLiga-TopScorer` (id INT PRIMARY KEY, teamName VARCHAR(30), Rank INT, TotalGoals INT, Name VARCHAR(30))
+
+CREATE TABLE `Ligue1-TopScorer` (id INT PRIMARY KEY, teamName VARCHAR(30), Rank INT, TotalGoals INT, Name VARCHAR(30))
+
+CREATE TABLE `Bundesliga-TopScorer` (id INT PRIMARY KEY, teamName VARCHAR(30), Rank INT, TotalGoals INT, Name VARCHAR(30))
+
+CREATE TABLE `EPL-TopScorer` (id INT PRIMARY KEY, teamName VARCHAR(30), Rank INT, TotalGoals INT, Name VARCHAR(30))
