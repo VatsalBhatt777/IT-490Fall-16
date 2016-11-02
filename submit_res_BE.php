@@ -72,7 +72,56 @@ $cont=json_encode($temp);
   return  $cont;
 
 }
+function FavMatches($n){
+$con =new  mysqli("localhost","root","toor");
+        if ($con->connect_error) {
+        die("Connection failed:".$con->connect_error);
+}
+mysqli_select_db($con,"Soccer");
+$sql= "SELECT DISTINCT LeagueAcr FROM `Subscription` WHERE UserName='$n';";
+echo "FUCK4";
+$result=mysqli_query($con,$sql) or die("Error: ".mysqli_error($connection));
+$temp = array();
+$temp[0]='FavMatches';
+$x=1;
+$data=array();
+$data[0]='FavMatches';
+while ($row = mysqli_fetch_assoc($result)){
+$temp[$x]=$row;
+$x+=1;
+//	echo "$x      $temp[$x]";
+}
 
+		
+	for ($x=1; $x<count($temp);$x++){
+	var_dump($temp[$x]);
+		
+		foreach ($temp[$x] as $tem){
+		echo "$x is $tem\n\n";
+		$sql2= "SELECT GameDate, GameStatus, homeTeamName, homeTeamGoals,awayTeamGoals, awayTeamName FROM $tem, Subscription WHERE 
+		$tem.homeTeamName=Subscription.TeamName OR
+		$tem.awayTeamName=Subscription.TeamName AND Subscription.UserName='$n' LIMIT 35;";
+            
+		echo "FUCK5". PHP_EOL;
+		
+		$res=mysqli_query($con,$sql2) or die("Error: ".mysqli_error($con));
+			while ($r=mysqli_fetch_assoc($res)){
+			$data[]=$r;	
+			}
+	
+}
+
+	}
+
+$cont=json_encode($data);
+	var_dump($cont);
+	$error = json_last_error();
+
+var_dump($cont, $error === JSON_ERROR_UTF8);
+//echo "\n\n".var_dump($cont);
+  return $cont;
+	
+}
 
 echo " [x] Awaiting RPC requests\n";
 $callback = function($req) {
@@ -179,7 +228,11 @@ else  if ($n == 'SerieATable'){
       echo "you asked for $outputTable";
 
 }
-
+else {
+echo "n is : $n";
+	$outputTable=FavMatches($n);
+//		echo "youasked for ".var_dump($outputTable);
+	}
     
     $msg = new AMQPMessage(
         (string)$outputTable,
