@@ -5,7 +5,7 @@ use PhpAmqpLib\Message\AMQPMessage;
 
 $connection = new AMQPStreamConnection('localhost', 5672, 'admin', 'asdf');
 $channel = $connection->channel();
-$channel->queue_declare('rpc_queue', false, false, false, false);
+$channel->queue_declare('rpc_queueR', false, false, false, false);
 
 function fib($JsonCred) {
 /**	if ($n == 0)
@@ -14,14 +14,18 @@ function fib($JsonCred) {
 		return 1;
 	return fib($n-1) + fib($n-2);
 **/
+
+//echo "/n/n".(string)$JsonCred."/n/n";
+
+
 $json=json_decode($JsonCred,true);
+
+echo $json["Username"];
 $username= $json["Username"];
 $password=$json["Password"];
 $FirstName=$json["FirstName"];
 $LastName=$json["LastName"];
 $Email=$json["Email"];
-
-
 
 $con =new  mysqli("localhost","root","toor");
 
@@ -31,28 +35,23 @@ $con =new  mysqli("localhost","root","toor");
 
 }
 
-
-
 mysqli_select_db($con,"UserInfo");
 
+ //$con =new  mysqli("localhost","root","toor");
+   //     if ($con->connect_error) {
+     //   die("<html>Connection failed:".$con->connect_error."</html>");
+//}
+//mysqli_select_db($con,"UserLogin");
+//echo $username;
 
- $con =new  mysqli("localhost","root","toor");
-
-        if ($con->connect_error) {
-
-        die("<html>Connection failed:".$con->connect_error."</html>");
-
-}
-mysqli_select_db($con,"UserInfo");
-
+$id;
 
 $sql = "INSERT INTO RegistrationPage VALUES('$username','$FirstName','$LastName','$Email','$password');";
 
-//$sql1=mysqli_query($con,$sql);
 
 	if(mysqli_query($con,$sql)){
-
-		return true;
+	$id=mysqli_insert_id();	
+	return 1;
 }
 	else {
 
@@ -76,9 +75,9 @@ if (is_array($JsonCred) || is_object($JsonCred))
 echo " [x] Awaiting RPC requests\n";
 $callback = function($req) {
 	$n = ($req->body);
-	$credentials = json_decode($req->body);
+//	$credentials = json_decode($req->body);
 
-//	echo " [.] recieved(",(string) fib($n), ")\n";
+//        echo " [.] recieved(",(string) fib($n), ")\n";
 	$msg = new AMQPMessage(
 		(string)fib($n),
 		array('correlation_id' => $req->get('correlation_id'))
@@ -90,7 +89,7 @@ $callback = function($req) {
 		$req->delivery_info['delivery_tag']);
 };
 $channel->basic_qos(null, 1, null);
-$channel->basic_consume('rpc_queue', '', false, false, false, false, $callback);
+$channel->basic_consume('rpc_queueR', '', false, false, false, false, $callback);
 while(count($channel->callbacks)) {
     $channel->wait();
 }
