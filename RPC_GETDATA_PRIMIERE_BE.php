@@ -7,7 +7,7 @@ use PhpAmqpLib\Message\AMQPMessage;
 $connection = new AMQPStreamConnection('localhost', 5672, 'admin', 'asdf');
 $channel = $connection->channel();
 
-$channel->queue_declare('rpc_queue', false, false, false, false);
+$channel->queue_declare('rpc_queue_tables', false, false, false, false);
 
 function APIdataDB($apiData) {
 $con =new  mysqli("localhost","root","toor");
@@ -38,17 +38,20 @@ for ($x = 0; $x < count($fixtures['standing']); $x++){
         $wins =  $fixtures['standing'][$x]['wins'];
         $draws =  $fixtures['standing'][$x]['draws'];
         $losses =  $fixtures['standing'][$x]['losses'];
-$sql = "INSERT INTO `$LeagueType` VALUES('$id','$position','$teamName','$playedGames','$points','$goals','$goalsAgainst','$goalDifference','$wins','$draws','$losses');";
+//$sql = "INSERT INTO `$LeagueType` VALUES('$id','$position','$teamName','$playedGames','$points','$goals','$goalsAgainst','$goalDifference','$wins','$draws','$losses');";
+
+$sql = "UPDATE `$LeagueType` SET Position='$position',teamName='$teamName',playedGames='$playedGames',points='$points',goals='$goals',goalsAgainst='$goalsAgainst',goalDifference='$goalDifference',wins='$wins',draws='$draws',losses='$losses' WHERE Id='$id';";
+
 
     if(mysqli_query($con,$sql)){
 
-                echo "<br><br>New record created successfully <br><br>";
+                echo PHP_EOL."New record created successfully".PHP_EOL;
             //return true;
 }
 
         else {
 
-                echo "Error: ".$sql."<br>".mysqli_error($con);
+                echo PHP_EOL."Error: ".$sql."<br>".mysqli_error($con).PHP_EOL;
 
 	//	return false;
 } 
@@ -86,7 +89,7 @@ $callback = function($req) {
 };
 
 $channel->basic_qos(null, 1, null);
-$channel->basic_consume('rpc_queue', '', false, false, false, false, $callback);
+$channel->basic_consume('rpc_queue_tables', '', false, false, false, false, $callback);
 
 while(count($channel->callbacks)) {
     $channel->wait();
