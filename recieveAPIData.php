@@ -16,12 +16,12 @@ echo 'HELLO';
 
 
 
-    $uri = 'http://api.football-data.org/v1/competitions/426/leagueTable';
+    $uri = 'http://api.football-data.org/v1/competitions/440/leagueTable';
     $reqPrefs['http']['method'] = 'GET';
     $reqPrefs['http']['header'] = 'X-Auth-Token: d65835349a984abcb4d4e66cb66af5f1';
     $stream_context = stream_context_create($reqPrefs);
     $response = file_get_contents($uri, false, $stream_context);
-    $fixtures = json_decode($response,TRUE);
+    $fixtures = json_decode($response,true);
  //   print '<prev>';
 //   print_r($fixtures);
   //  print '</prev>';
@@ -29,47 +29,47 @@ echo 'HELLO';
 	//print "<b> Positions     TeamName </b> <br><br>";
 	
 print "<br><br> Hello <br><br>";
-
-	for ($x = 0; $x < count($fixtures['standing']); $x++){
+//standing(s) for champ league
+	for ($x = 0; $x < count($fixtures['standings']); $x++){
 	
 	$id=$x;
 
-        $position= $fixtures['standing'][$x]['position'];
+        $position= $fixtures['standings'][$x]['position'];
 
-	$teamName= $fixtures['standing'][$x]['teamName'];
+	$teamName= $fixtures['standings'][$x]['teamName'];
 
-	$playedGames= $fixtures['standing'][$x]['playedGames'];
+	$playedGames= $fixtures['standings'][$x]['playedGames'];
 
-	$points =  $fixtures['standing'][$x]['points'];
+	$points =  $fixtures['standings'][$x]['points'];
 
-        $goals =  $fixtures['standing'][$x]['goals'];
+        $goals =  $fixtures['standings'][$x]['goals'];
 
-	$goalsAgainst =  $fixtures['standing'][$x]['goalsAgainst'];
+	$goalsAgainst =  $fixtures['standings'][$x]['goalsAgainst'];
 
-	$goalDifference =  $fixtures['standing'][$x]['goalDifference'];
+	$goalDifference =  $fixtures['standings'][$x]['goalDifference'];
 
-	$wins =  $fixtures['standing'][$x]['wins'];
+	$wins =  $fixtures['standings'][$x]['wins'];
 
-	$draws =  $fixtures['standing'][$x]['draws'];
+	$draws =  $fixtures['standings'][$x]['draws'];
 
-	$losses =  $fixtures['standing'][$x]['losses'];
+	$losses =  $fixtures['standings'][$x]['losses'];
 
 	
 
-//	echo "    ".$id."      ". $position. "      ".$teamName."      ".$playedGames."      " .$points."      ".$goals."    ".$goalsAgainst."     ".$goalDifference. "     ".$wins. "    ".$draws."    ".$losses."   <br/><br/>";
+	echo "--- ". $position. "      ".$teamName."      ".$playedGames."      " .$points."      ".$goals."    ".$goalsAgainst."     ".$goalDifference. "     ".$wins. "    ".$draws."    ".$losses." ---";
 
-$sql = "INSERT INTO PremiereLeague VALUES('$id','$position','$teamName','$playedGames','$points','$goals','$goalsAgainst','$goalDifference','$wins','$draws','$losses');";
+//$sql = "INSERT INTO PremiereLeague VALUES('$id','$position','$teamName','$playedGames','$points','$goals','$goalsAgainst','$goalDifference','$wins','$draws','$losses');";
 
-	if(mysqli_query($con,$sql)){
+//	if(mysqli_query($con,$sql)){
 
-		echo "<br><br>New record created successfully <br><br>";
+//		echo "<br><br>New record created successfully <br><br>";
 
-					}
+//					}
 
-	else {
+//	else {
 
-		echo "Error: ".$sql."<br>".mysqli_error($con);
-}
+//		echo "Error: ".$sql."<br>".mysqli_error($con);
+//}
 
 }
 
