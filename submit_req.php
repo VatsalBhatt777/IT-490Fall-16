@@ -144,7 +144,27 @@ echo "</table></center>";
 
 }
 
+else if($final[0]=="FavMatches"){
 
+echo "<center><table border=3 class=table table-striped table-bordered background-color:aqua; border-color:lime; color:green;>";
+
+//var_dump($final[1]);
+    
+echo "<TR><TH> GameDate</TH> <TH>GameStatus</TH> <TH>homeTeamName</TH> <TH>homeTeamGoals</TH> <TH>awayTeamGoals</TH>  <TH>awayTeamName</TH> </TR> ";
+
+for ( $x=1; $x<count($final); $x++){
+echo "<tr>";
+foreach ($final[$x] as $res){
+echo "<td>";
+echo " $res";
+echo "</td>";
+
+}
+//echo "<br>";
+}
+echo "</table></center>";
+
+}
 echo "</body>";
 echo "</html>";
 ?>
