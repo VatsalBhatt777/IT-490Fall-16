@@ -37,17 +37,21 @@ for ($x = 0; $x < count($fixtures); $x++){
         
        
 //echo "$team $PlayaRank $goals $PlayaName\n\n";
-$sql = "INSERT INTO `$LeagueType` VALUES('$id','$team','$PlayaRank','$goals','$PlayaName');";
+//$sql = "INSERT INTO `$LeagueType` VALUES('$id','$team','$PlayaRank','$goals','$PlayaName');";
+
+$sql = "UPDATE `$LeagueType` SET teamName='$team',Rank='$PlayaRank',TotalGoals='$goals',Name='$PlayaName' WHERE id='$id';";
+
+
 
     if(mysqli_query($con,$sql)){
 
-                echo "<br><br>New record created successfully <br><br>";
+                echo PHP_EOL."New record created successfully".PHP_EOL;
             //return true;
 }
 
         else {
 
-                echo "Error: ".$sql."<br>".mysqli_error($con);
+                echo PHP_EOL."Error: ".$sql."<br>".mysqli_error($con).PHP_EOL;
 
 	//	return false;
 } 
