@@ -11,7 +11,7 @@ class FibonacciRpcClient {
        
 	public function __construct() {
 		$this->connection = new AMQPStreamConnection(
-			'192.168.43.167', 5672, 'admin', 'knp33');
+			'localhost', 5672, 'admin', 'asdf');
 		$this->channel = $this->connection->channel();
 		list($this->callback_queue, ,) = $this->channel->queue_declare(
 			"", false, false, true, false);
@@ -39,7 +39,7 @@ class FibonacciRpcClient {
 			array('correlation_id' => $this->corr_id,
 			      'reply_to' => $this->callback_queue)
 			);
-		$this->channel->basic_publish($msg, '', 'rpc_queue');
+		$this->channel->basic_publish($msg, '', 'rpc_queue_tables');
 		while(!$this->response) {
 			$this->channel->wait();
 		}
