@@ -7,12 +7,12 @@ use PhpAmqpLib\Message\AMQPMessage;
 $connection = new AMQPStreamConnection('localhost', 5672, 'admin', 'asdf');
 $channel = $connection->channel();
 
-$channel->queue_declare('rpc_queue', false, false, false, false);
+$channel->queue_declare('rpc_queue_fixtures', false, false, false, false);
 
 function APIdataDB($apiData) {
 
 
-$con =new  mysqli("localhost","root","toor");
+$con =new  mysqli("10.200.173.90","vatsal","toor");
         if ($con->connect_error) {
         die("Connection failed:".$con->connect_error);
 }
@@ -50,9 +50,10 @@ for ($x = 0; $x < count($fixtures['fixtures']); $x++){
 
 //echo "MatchDay=".$matchDay." status=".$status." playDate=".$playGamesDate." homeTeamName=".$HomeTeamGoals." awayTeamGoals=".$AwayTeamGoals;
 
-$sql = "INSERT INTO `$LeagueType` VALUES('$id','$playGamesDate','$status','$homeTeamName','$awayTeamName',(NULLIF('$HomeTeamGoals','')),(NULLIF('$AwayTeamGoals','')),'$matchDay');";
+//$sql = "INSERT INTO `$LeagueType` VALUES('$id','$playGamesDate','$status','$homeTeamName','$awayTeamName',(NULLIF('$HomeTeamGoals','')),(NULLIF('$AwayTeamGoals','')),'$matchDay');";
+$sql = "UPDATE `$LeagueType` SET GameDate='$playGamesDate',GameStatus='$status',homeTeamName='$homeTeamName',awayTeamName='$awayTeamName',homeTeamGoals=(NULLIF('$HomeTeamGoals','')),awayTeamGoals=(NULLIF('$AwayTeamGoals','')),MatchDay='$matchDay' WHERE GameID='$id';";
 
-    if(mysqli_query($con,$sql)){
+   if(mysqli_query($con,$sql)){
 
                 echo "<br><br>New record created successfully <br><br>";
             //return true;
@@ -60,7 +61,7 @@ $sql = "INSERT INTO `$LeagueType` VALUES('$id','$playGamesDate','$status','$home
 
         else {
 
-                echo "Error: ".$sql."<br>".mysqli_error($con);
+                echo PHP_EOL."Error: ".$sql."<br>".mysqli_error($con).PHP_EOL;
 
 	//	return false;
 } 
@@ -90,7 +91,7 @@ $callback = function($req) {
 };
 
 $channel->basic_qos(null, 1, null);
-$channel->basic_consume('rpc_queue', '', false, false, false, false, $callback);
+$channel->basic_consume('rpc_queue_fixtures', '', false, false, false, false, $callback);
 
 while(count($channel->callbacks)) {
     $channel->wait();
