@@ -48,7 +48,7 @@ class FibonacciRpcClient {
 
                 //$this->channel->basic_publish($msgType, '','rpc_queue'); 
 
-		$this->channel->basic_publish($msg, '', 'rpc_queue');
+		$this->channel->basic_publish($msg, '', 'rpc_queue_fixtures');
 		while(!$this->response) {
 			$this->channel->wait();
 		}
